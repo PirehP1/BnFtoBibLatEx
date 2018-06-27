@@ -45,3 +45,16 @@ python3 BnFtoBibLaTex.py fichier "/home/leo/Bureau/in.txt" --sortie "/home/leo/r
 ```
  python3 BnFtoBibLaTex.py url "http://gallica.bnf.fr/ark:/12148/bpt6k6471872n"
 ```
+
+## À faire
+
+* Rajouter le support des notices de périodique
+* Refactoriser l'ensemble...
+* Revoir la génération des clés : en faire une
+fonction propre et permettre la personnification ?
+* Ajouter une option pour faire des pauses aléatoires
+quand beaucoup d'url à parser ?
+* Rajouter des options pour garder ISBN, EAN ?
+* Idem pour les mots clés rameaux ?
+* Ajouter une option pour intégrer des mots clés en série
+sur toutes les entrées importées .
