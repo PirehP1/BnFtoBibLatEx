@@ -34,8 +34,10 @@ python3 BnFtoBibLaTex.py -h
 
 ### Options disponibles
 
+* Appel du script :
+`python3 BnFtoBibLatex.py`
 * Arguments obligatoires :
-  * `{url,fichier}` : précise si l'entrée est une URL ark ou bien un fichier contenant une URL ark par ligne
+  * `url` ou `fichier` : précise si l'entrée est une URL ark ou bien un fichier contenant une URL ark par ligne
   * `input_ark` : chemin vers le fichier d'entrée ou URL ark
 * Argument optionnel :
   * `sortie` : chemin vers le fichier de sortie dans lequel seronts enregistrées les entrées BibLaTeX
