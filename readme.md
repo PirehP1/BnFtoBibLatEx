@@ -14,7 +14,7 @@ Script python 3.6 de conversion de notices bibliographiques de la BnF vers des e
 
 1. Cloner le dépôt :
 ```
-git clone git@framagit.org:leodumont/BnFtoBibLaTeX.git
+git clone https://framagit.org/leodumont/BnFtoBibLaTeX.git
 ```
 2. Se déplacer dans le répertoire du script :
 ```
