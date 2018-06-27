@@ -9,7 +9,10 @@ from collections import defaultdict
 import argparse
 import os
 import sys
-import timeit
+import urllib3
+
+# Permet d'éviter l'affichage d'une erreur de certificat sur les URL gallica
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 def checkURL(url_ark):
@@ -97,11 +100,6 @@ def parseXML(dc_xml):
     Ce format permet de gérer le fait qu'il puisse y avoir plusieurs
     valeurs pour une même clé (auteurs multiples par exemple)"""
     arbre = etree.parse(dc_xml)
-    # print(etree.tostring(arbre, pretty_print=True))
-    # nsmap = {'oai_dc': 'http://www.openarchives.org/OAI/2.0/oai_dc/',
-    #          'dc': 'http://purl.org/dc/elements/1.1/',
-    #          'srw': 'http://www.loc.gov/zing/srw/'}
-    # element = arbre.xpath("/srw:searchRetrieveResponse/srw:records/srw:record/srw:recordData/oai_dc:dc/", namespaces=nsmap)
     element = arbre.xpath("//*[namespace-uri()='http://purl.org/dc/elements/1.1/']")
     metadonnees = defaultdict(list)
     for child in element:
@@ -136,12 +134,8 @@ def DCtoBibLaTex(metadonnees):
     ## Génération de la clé
     if "author" in BibLaTeX_values:
         nom_cle = BibLaTeX_values["author"][0]
-        # if len(nom_cle) > 12:
-        #     nom_cle = BibLaTeX_values["author"][0][:10]
     elif "editor" in BibLaTeX_values:
         nom_cle = BibLaTeX_values["editor"][0]
-        # if len(nom_cle) > 12:
-        #     nom_cle = BibLaTeX_values["editor"][0][:10]
     else:
         nom_cle = BibLaTeX_values["title"][0]
 
@@ -298,6 +292,7 @@ def BibLaTeXWriter(BibLaTeX_propre, type_notice):
 
 
 def wraper(entree):
+    """ Exécute les différentes fonctions dans le bon ordre """
     type_ark = checkURL(entree)
     conversion = GallicaToCatalogueG(entree, type_ark)
     url_ark = conversion[0]
@@ -314,6 +309,8 @@ def wraper(entree):
 
 
 def main(input_type, input_ark):
+    """ Fonction main. Vérifie que les entrées CLI soient correctes
+    et selon les options appelles le wrapper différemment."""
     entrees = []
     if input_type == "url":
         entrees.append(wraper(input_ark))
@@ -339,7 +336,7 @@ def main(input_type, input_ark):
             print(item)
 
 
-start_time = timeit.default_timer()
+# Définition des arguments CLI
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Conversion de notices BnF vers entrées BibLaTeX à partir d'URL ark Gallica ou Catalogue général.")
     parser.add_argument("input_type", help="Permet de spécifier le type d'entrée (\"fichier\" ou \"url\")", choices=["url", "fichier"])
@@ -347,20 +344,3 @@ if __name__ == "__main__":
     parser.add_argument("--sortie", help="Chemin vers un fichier texte de sortie.", type=str)
     args = parser.parse_args()
     main(args.input_type, args.input_ark)
-elapsed = timeit.default_timer() - start_time
-print(elapsed)
-
-""" TODO
-- Rajouter le support des notices de périodique
-- Revoir la génération des clés : en faire une
-fonction propre et permettre la personnification ?
-- Ajouter une option pour faire des pauses aléatoires
-quand beaucoup d'url à parser
-- rajouter des options pour garder ISBN, EAN ?
-- idem pour les mots clés rameaux
-- créer l'interface graphique
-- refactoriser l'ensemble, avec notamment une gestion
-des exceptions et des erreurs...
-- ajouter une option pour intégrer des mots clés en série
-sur toutes les entrées importées.
-"""

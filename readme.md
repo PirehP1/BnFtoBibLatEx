@@ -1,6 +1,6 @@
 # BnFtoBibLaTeX
 
-Script python 3.6 de conversion de notices bibliographiques de la BnF vers des entrées BibLaTeX.
+Script python 3.6 de conversion de notices bibliographiques de la BnF vers des entrées BibLaTeX à partir d'URL pérenne de type ARK.
 
 ## Fonctionnalités
 
