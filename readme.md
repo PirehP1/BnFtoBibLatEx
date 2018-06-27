@@ -7,6 +7,7 @@ Script python 3.6 de conversion de notices bibliographiques de la BnF vers des e
 * Conversion à partir d'une URL ark http://catalogue.bnf.fr ou bien http://gallica.bnf.fr
 * Utilisation des [API BnF](http://api.bnf.fr/accueil)
 * Mapping des métadonnées BnF du format dublincore vers le format BibLaTex
+* Détection de métadonnées supplémentaires (nombre de pages, ville d'édition...) quand possible
 * Interface en ligne de commande (*CLI interface*)
 
 ## Installation
