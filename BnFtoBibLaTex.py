@@ -243,7 +243,6 @@ def BetterMapping(BibLaTeX_values):
         for contenu in keywords:
             if re.search('Actes? de congrès', contenu) is not None:
                 type_notice = "proceedings"
-                # del BibLaTeX_values["keywords"]
             else:
                 type_notice = "book"
         del BibLaTeX_values["keywords"]
