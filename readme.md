@@ -22,17 +22,28 @@ cd BnFtoBibLaTex
 ```
 3. Installer les dépendances avec pip :
 ```
-pip3 install -r requirements.t
+pip3 install -r requirements.txt
 ```
 
-## Usage
-
-Dans le répertoire du script :
+## Utilisation
 
 * affichage de l'aide :
 ```
 python3 BnFtoBibLaTex.py -h
 ```
+
+### Options disponibles
+
+* Arguments obligatoires :
+  * `{url,fichier}` : précise si l'entrée est une URL ark ou bien un fichier contenant une URL ark par ligne
+  * `input_ark` : chemin vers le fichier d'entrée ou URL ark
+* Argument optionnel :
+  * `sortie` : chemin vers le fichier de sortie dans lequel seronts enregistrées les entrées BibLaTeX
+
+### Exemples d'utilisation
+
+Dans le répertoire du script :
+
 * exemple à partir d'une URL ark vers fichier de sortie :
 ```
 python3 BnFtoBibLaTex.py url "http://catalogue.bnf.fr/ark:/12148/cb30028011c" --sortie "/home/leo/Bureau/out.bib"
