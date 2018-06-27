@@ -48,7 +48,7 @@ python3 BnFtoBibLaTex.py fichier "/home/leo/Bureau/in.txt" --sortie "/home/leo/r
 
 ## À faire
 
-* Rajouter le support des notices de périodique
+* Rajouter le support des notices de périodique (ex. : http://catalogue.bnf.fr/ark:/12148/cb39294634r ou http://catalogue.bnf.fr/ark:/12148/cb410738678)
 * Refactoriser l'ensemble...
 * Revoir la génération des clés : en faire une
 fonction propre et permettre la personnification ?
