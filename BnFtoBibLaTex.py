@@ -256,7 +256,7 @@ def BetterMapping(BibLaTeX_values):
                 series.remove(contenu)
         if len(series) == 0:
             del BibLaTeX_values["series"]
-    print(BibLaTeX_values)
+
     return BibLaTeX_values, type_notice
 
 
