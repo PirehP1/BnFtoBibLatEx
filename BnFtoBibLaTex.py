@@ -254,7 +254,9 @@ def BetterMapping(BibLaTeX_values):
         for contenu in series:
             if re.search('^Code à', contenu) is not None:
                 series.remove(contenu)
-
+        if len(series) == 0:
+            del BibLaTeX_values["series"]
+    print(BibLaTeX_values)
     return BibLaTeX_values, type_notice
 
 

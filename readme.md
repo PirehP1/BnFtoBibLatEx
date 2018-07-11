@@ -13,24 +13,16 @@ Script python 3.6 de conversion de notices bibliographiques de la BnF vers des e
 ## Installation
 
 1. Cloner le dépôt :
-```
-git clone https://framagit.org/leodumont/BnFtoBibLaTeX.git
-```
+`git clone https://framagit.org/leodumont/BnFtoBibLaTeX.git`
 2. Se déplacer dans le répertoire du script :
-```
-cd BnFtoBibLaTex
-```
+`cd BnFtoBibLaTex`
 3. Installer les dépendances avec pip :
-```
-pip3 install -r requirements.txt
-```
+`pip3 install -r requirements.txt`
 
 ## Utilisation
 
 * affichage de l'aide :
-```
-python3 BnFtoBibLaTex.py -h
-```
+`python3 BnFtoBibLaTex.py -h`
 
 ### Options disponibles
 
@@ -40,24 +32,18 @@ python3 BnFtoBibLaTex.py -h
   * `url` ou `fichier` : précise si l'entrée est une URL ark ou bien un fichier contenant une URL ark par ligne
   * `input_ark` : chemin vers le fichier d'entrée ou URL ark
 * Argument optionnel :
-  * `sortie` : chemin vers le fichier de sortie dans lequel seronts enregistrées les entrées BibLaTeX
+  * `--sortie` : chemin vers le fichier de sortie dans lequel seronts enregistrées les entrées BibLaTeX
 
 ### Exemples d'utilisation
 
 Dans le répertoire du script :
 
 * exemple à partir d'une URL ark vers fichier de sortie :
-```
-python3 BnFtoBibLaTex.py url "http://catalogue.bnf.fr/ark:/12148/cb30028011c" --sortie "/home/leo/Bureau/out.bib"
-```
+`python3 BnFtoBibLaTex.py url "http://catalogue.bnf.fr/ark:/12148/cb30028011c" --sortie "/home/user/Bureau/out.bib"`
 * exemple à partir d'un fichier d'URL ark vers fichier de sortie :
-```
-python3 BnFtoBibLaTex.py fichier "/home/leo/Bureau/in.txt" --sortie "/home/leo/reau/out.bib"
-```
+`python3 BnFtoBibLaTex.py fichier "/home/user/Bureau/in.txt" --sortie "/home/user/reau/out.bib"`
 * exemple à partir d'une URL ark vers une sortie *stdout* :
-```
- python3 BnFtoBibLaTex.py url "http://gallica.bnf.fr/ark:/12148/bpt6k6471872n"
-```
+`python3 BnFtoBibLaTex.py url "http://gallica.bnf.fr/ark:/12148/bpt6k6471872n"`
 
 ## À faire
 
